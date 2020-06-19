@@ -30,6 +30,7 @@ function updateTimeBlocks() {
 // Loads saved text inside time blocks
 function loadSavedItems() {
     for (i = 0; i < timeBlocks.length; i++) {
+        // Only gets the saved values inside of local storage if a saved value exists
         if (localStorage[SAVE_ID_PREFIX + timeBlocks[i].id]) {
             timeBlocks[i].value = localStorage[SAVE_ID_PREFIX + timeBlocks[i].id];
         }
