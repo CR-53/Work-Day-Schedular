@@ -1,38 +1,78 @@
+// Constants
+const SAVE_ID_PREFIX = "save";
+
 // Variables 
 var currentDay = moment().format("dddd Do MMMM");
 var currentHour = parseInt(moment().format('H'));
 var timeBlocks = $(".time-block");
+var saveButtons = $(".saveBtn");
 
-$("#currentDay").text(currentDay);
+// Functions
 
-console.log(currentHour);
+// Changes background colour of time blocks based on current time
+function updateTimeBlocks() {
+    for (i = 0; i < timeBlocks.length; i++) {
 
-for (i = 0; i < timeBlocks.length; i++) {
-    console.log(timeBlocks[i]);
+        if (timeBlocks[i].id < currentHour) {
+            $(timeBlocks[i]).attr("class" , "time-block past");
+        }
 
-    if (timeBlocks[i].id < currentHour) {
-        console.log(timeBlocks[i].id + "past");
-        // pastBlocks.setAttribute('id', 'past');
-    }
+        else if (timeBlocks[i].id == currentHour) {
+            $(timeBlocks[i]).attr("class" , "time-block present");
+        }
 
-    else if (timeBlocks[i].id == currentHour) {
-       console.log(timeBlocks[i].id + "present");
-    //    timeBlocks.addClass("present");
-    }
-
-    else {
-        console.log(timeBlocks[i].id + "future");
-        // timeBlocks.addClass("future");
-    }
+        else {
+            $(timeBlocks[i]).attr("class" , "time-block future");
+        }
+    };
 };
 
-$("#save9").on("click", function() {
-    var saveText9 = timeBlocks[0].value;
-    localStorage.savedUserText9 = saveText9;
-});
+// $('#elementId').attr('class', 'newClassName');
 
+
+// Loads saved text inside time blocks
 function loadSavedItems() {
-    timeBlocks[0].value = window.localStorage['savedUserText9'];
+    for (i = 0; i < timeBlocks.length; i++) {
+        timeBlocks[i].value = localStorage[SAVE_ID_PREFIX + timeBlocks[i].id];
+    }
 }
 
+// Binds function to all save buttons
+function bindSaveButtons() {
+    // Saves text inside text area HTML element to the local storage when save button is clicked
+    $(saveButtons).on("click", function () {
+        // Get the id of the button clicked
+        var saveID = this.id;
+        // Extract the numbers from the saveID
+        var idNumber = saveID.slice(SAVE_ID_PREFIX.length, saveID.length);
+        // Get the user input of the corresponding text area
+        var timeBlockText = $("#" + idNumber).val();
+        // Save the user input to local storage
+        localStorage[saveID] = timeBlockText;
+    });
+}
+
+// Periodically checks the current time and updates timeblocks accordingly
+function beginPeriodicUpdates() {
+    interval = setInterval(function () {
+        // Changes the current day / date
+        currentDay = moment().format("dddd Do MMMM");
+        // Changes the current hour
+        currentHour = parseInt(moment().format('H'));
+        // Displays the current day / date on the screen
+        $("#currentDay").text(currentDay);
+        updateTimeBlocks();
+    }, 1000); //1000 ms = 1 seconds which is the interval between the function execution
+}
+
+bindSaveButtons();
 loadSavedItems();
+
+/* Updates day/date & timeblocks on first page load.
+    Makes it appear immediately when loading the page,
+    rather than waiting for it to be called inside beginPeriodicUpdates() */
+$("#currentDay").text(currentDay);
+updateTimeBlocks();
+
+beginPeriodicUpdates();
+
