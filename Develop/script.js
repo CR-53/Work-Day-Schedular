@@ -27,13 +27,12 @@ function updateTimeBlocks() {
     };
 };
 
-// $('#elementId').attr('class', 'newClassName');
-
-
 // Loads saved text inside time blocks
 function loadSavedItems() {
     for (i = 0; i < timeBlocks.length; i++) {
-        timeBlocks[i].value = localStorage[SAVE_ID_PREFIX + timeBlocks[i].id];
+        if (localStorage[SAVE_ID_PREFIX + timeBlocks[i].id]) {
+            timeBlocks[i].value = localStorage[SAVE_ID_PREFIX + timeBlocks[i].id];
+        }
     }
 }
 
