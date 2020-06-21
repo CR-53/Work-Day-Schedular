@@ -19,9 +19,10 @@ Moment.js was required in order to retrieve the user's current time from their b
 To get the timeblocks background colour to change based on the current hour, I used the timeblocks ID which was an integer set to the same value as the timeblocks hour it represented. I think used the previously created variable for current hour and created a for loop to check the timeblocks ID against the current hour in 24 hour time. Then all that was left was to change the class of the individual timeblocks based on whether their ID was less than, greater than or equal to the current hour.
 
 ## Saving User Input
-To get the users input to save when the corresponding save button was clicked, I used localStorage and created two functions; one to save the input and one to load the input (if for example the page was refreshed). 
+To get the users input to save when the corresponding save button was clicked, I used localStorage and created two functions; one to save the input, and one to load the input (if for example the page was refreshed). The logic to bind the buttons to their corresponding timeblocks, save the information and load the information was the most complex logic I included in this project, although I believe it turned out very nicely and saved a lot of lines of extra code. 
 
 ## Periodically Updating Page
-
+Without refreshing the page, to ensure the date at the top of the page changed overnight and that the timeblocks background colour changed every hour, I added a new function which periodically updated the date & current hour every second. 
 
 ## Licesense & Copyright
+
