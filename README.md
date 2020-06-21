@@ -16,6 +16,7 @@ Moment.js was required in order to retrieve the user's current time from their b
 
 ## Changing Timeblocks Background
 ![Current Time](Assets/CurrentTime.png)
+To get the timeblocks background colour to change based on the current hour, I used the timeblocks ID which was an integer set to the same value as the timeblocks hour it represented. I think used the previously created variable for current hour and created a for loop to check the timeblocks ID against the current hour in 24 hour time. Then all that was left was to change the class of the individual timeblocks based on whether their ID was less than, greater than or equal to the current hour.
 
 ## Saving User Input
 
