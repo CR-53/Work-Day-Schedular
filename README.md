@@ -1,7 +1,7 @@
 # Work-Day-Schedular
 05 Third-Party APIs: Work Day Scheduler
 
-<img link here>
+![Home Page](Assets/WorkDaySchedular.png)
 
 https://cr-53.github.io/Work-Day-Schedular/Develop/index.html
 
@@ -12,7 +12,7 @@ https://cr-53.github.io/Work-Day-Schedular/Develop/index.html
 
 
 ## Changing Timeblocks Background
-
+![Current Time](Assets/CurrentTime.png)
 
 ## Saving User Input
 
