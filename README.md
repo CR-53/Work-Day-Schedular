@@ -12,7 +12,7 @@ The task for this week was to create a calendar scheduler for the average work d
 I started this task by building the layout of the schedular using HTML and CSS. I tried a lot of different HTML methods including using a table and using a list, but I decided to go with using bootstrap rows & columns to create the layout of the timeblocks. I made sure to give every text area field and every save button a unique ID which I could then utilize in my javascript.
 
 ## Moment.js
-
+Moment.js was required in order to retrieve the user's current time from their browser/machine. I first installed moment.js then tested out various different time formats via console.log. After deciding on which time formats were best suited for this task, I added the date to the top of the screen and created a variable for the current hour which would be used later in the code.
 
 ## Changing Timeblocks Background
 ![Current Time](Assets/CurrentTime.png)
