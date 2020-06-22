@@ -25,4 +25,4 @@ To get the users input to save when the corresponding save button was clicked, I
 Without refreshing the page, to ensure the date at the top of the page changed overnight and that the timeblocks background colour changed every hour, I added a new function which periodically updated the date & current hour every second. 
 
 ## License & Copyright
-© Chris Roschi, University of Adelaide Coding Bootcamp
+© Chris R, University of Adelaide Coding Bootcamp
